@@ -67,19 +67,9 @@
     }
 
     .card-content p {
-      margin: 0 0 15px;
+      margin: 0;
       font-weight: bold;
       color: #0f0;
-    }
-
-    .btn-wsp {
-      display: inline-block;
-      padding: 10px 18px;
-      background: #25d366;
-      color: #000;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
     }
 
     footer {
@@ -87,6 +77,30 @@
       padding: 20px;
       color: #777;
       font-size: 14px;
+    }
+
+    /* Botón flotante de WhatsApp */
+    .btn-wsp-fixed {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 60px;
+      height: 60px;
+      background: #25d366;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      font-size: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,.3);
+      z-index: 1000;
+      transition: transform .3s;
+    }
+
+    .btn-wsp-fixed:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
@@ -102,17 +116,20 @@
   <!-- Los perfumes se cargan automáticamente desde data.json -->
 </section>
 
+<!-- Botón flotante de WhatsApp -->
+<a id="btn-wsp" class="btn-wsp-fixed" href="#" target="_blank">💬</a>
+
 <footer>
   © 2026 JMLuxare Store
 </footer>
 
-<!-- Script para cargar perfumes dinámicamente -->
 <script>
 fetch('data.json')
   .then(response => response.json())
   .then(data => {
     const catalogo = document.getElementById('catalogo');
 
+    // Cargar perfumes dinámicamente
     data.perfumes.forEach(p => {
       const card = document.createElement('div');
       card.className = 'card';
@@ -121,13 +138,15 @@ fetch('data.json')
         <div class="card-content">
           <h3>${p.nombre}</h3>
           <p>Precio: ${p.precio}</p>
-          <a class="btn-wsp" href="${p.whatsapp}" target="_blank">
-            Comprar por WhatsApp
-          </a>
         </div>
       `;
       catalogo.appendChild(card);
     });
+
+    // Enlace flotante de WhatsApp (solo uno, editable en data.json)
+    if(data.whatsapp) {
+      document.getElementById('btn-wsp').href = data.whatsapp;
+    }
   })
   .catch(err => console.error("Error cargando data.json:", err));
 </script>
