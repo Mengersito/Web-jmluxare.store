@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin – JMLuxare</title>
+  <style>
+    body {
+      background:#0f0f0f;
+      color:#fff;
+      font-family:Arial;
+      padding:20px;
+    }
+    input, button {
+      padding:10px;
+      margin:5px 0;
+      width:100%;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Panel privado – JMLuxare</h2>
+
+<p>⚠️ Este panel es solo para el dueño</p>
+
+<label>Nombre del perfume</label>
+<input id="nombre">
+
+<label>Precio</label>
+<input id="precio">
+
+<label>Nombre de la imagen (ej: dior.jpg)</label>
+<input id="imagen">
+
+<button onclick="agregar()">Generar código</button>
+
+<pre id="output"></pre>
+
+<script>
+function agregar(){
+  const nombre = document.getElementById("nombre").value;
+  const precio = document.getElementById("precio").value;
+  const imagen = document.getElementById("imagen").value;
+
+  document.getElementById("output").textContent = `
+{
+  nombre: "${nombre}",
+  precio: "${precio}",
+  imagen: "images/${imagen}"
+},
+`;
+}
+</script>
+
+</body>
+</html>
