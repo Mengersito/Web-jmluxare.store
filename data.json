@@ -1,0 +1,14 @@
+{
+  "perfumes": [
+    {
+      "nombre": "Khamrah – Lattafa",
+      "imagen": "images/khamrah.jpg",
+      "whatsapp": "https://wa.me/57TU_NUMERO?text=Hola%20quiero%20el%20perfume%20Khamrah"
+    },
+    {
+      "nombre": "Khamrah Qahwa",
+      "imagen": "images/khamrah-qahwa.jpg",
+      "whatsapp": "https://wa.me/573503341287?text=Hola%20quiero%20el%20perfume%20Khamrah%20Qahwa"
+    }
+  ]
+}
