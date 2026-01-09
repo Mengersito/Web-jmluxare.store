@@ -2,55 +2,71 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Admin – JMLuxare</title>
+  <title>Admin | JMLuxare Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
-      background:#0f0f0f;
-      color:#fff;
-      font-family:Arial;
-      padding:20px;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
-    input, button {
-      padding:10px;
-      margin:5px 0;
-      width:100%;
+
+    .panel {
+      background: #161616;
+      padding: 40px;
+      border-radius: 12px;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.6);
+    }
+
+    h1 {
+      margin-top: 0;
+      letter-spacing: 2px;
+    }
+
+    p {
+      color: #ccc;
+      line-height: 1.5;
+    }
+
+    code {
+      background: #000;
+      padding: 6px 10px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-top: 10px;
+      color: #25d366;
     }
   </style>
 </head>
+
 <body>
 
-<h2>Panel privado – JMLuxare</h2>
+<div class="panel">
+  <h1>ADMIN PANEL</h1>
+  <p>Panel privado de <strong>JMLuxare Store</strong></p>
 
-<p>⚠️ Este panel es solo para el dueño</p>
+  <p>
+    Para modificar el catálogo, imágenes o textos:
+  </p>
 
-<label>Nombre del perfume</label>
-<input id="nombre">
+  <p>
+    👉 Entra al repositorio de GitHub  
+    👉 Edita <code>index.html</code>  
+    👉 Sube imágenes en <code>/images</code>
+  </p>
 
-<label>Precio</label>
-<input id="precio">
-
-<label>Nombre de la imagen (ej: dior.jpg)</label>
-<input id="imagen">
-
-<button onclick="agregar()">Generar código</button>
-
-<pre id="output"></pre>
-
-<script>
-function agregar(){
-  const nombre = document.getElementById("nombre").value;
-  const precio = document.getElementById("precio").value;
-  const imagen = document.getElementById("imagen").value;
-
-  document.getElementById("output").textContent = `
-{
-  nombre: "${nombre}",
-  precio: "${precio}",
-  imagen: "images/${imagen}"
-},
-`;
-}
-</script>
+  <p>
+    Este panel no es público ni editable por clientes.
+  </p>
+</div>
 
 </body>
 </html>
