@@ -62,8 +62,14 @@
     }
 
     .card-content h3 {
-      margin: 0 0 15px;
+      margin: 0 0 10px;
       font-weight: 500;
+    }
+
+    .card-content p {
+      margin: 0 0 15px;
+      font-weight: bold;
+      color: #0f0;
     }
 
     .btn-wsp {
@@ -92,35 +98,39 @@
   <p>Perfumes 100% originales • Envíos a todo el país</p>
 </header>
 
-<section class="catalogo">
-
-  <!-- PERFUME 1 -->
-  <div class="card">
-    <img src="images/khamrah.jpg" alt="Khamrah Lattafa">
-    <div class="card-content">
-      <h3>Khamrah – Lattafa</h3>
-      <a class="btn-wsp" href="https://wa.me/57TU_NUMERO?text=Hola%20quiero%20el%20perfume%20Khamrah" target="_blank">
-        Comprar por WhatsApp
-      </a>
-    </div>
-  </div>
-
-  <!-- PERFUME 2 -->
-  <div class="card">
-    <img src="images/khamrah-qahwa.jpg" alt="Khamrah Qahwa">
-    <div class="card-content">
-      <h3>Khamrah Qahwa</h3>
-      <a class="btn-wsp" href="https://wa.me/573503341287?text=Hola%20quiero%20el%20perfume%20Khamrah%20Qahwa" target="_blank">
-        Comprar por WhatsApp
-      </a>
-    </div>
-  </div>
-
+<section class="catalogo" id="catalogo">
+  <!-- Los perfumes se cargan automáticamente desde data.json -->
 </section>
 
 <footer>
   © 2026 JMLuxare Store
 </footer>
+
+<!-- Script para cargar perfumes dinámicamente -->
+<script>
+fetch('data.json')
+  .then(response => response.json())
+  .then(data => {
+    const catalogo = document.getElementById('catalogo');
+
+    data.perfumes.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img src="${p.imagen}" alt="${p.nombre}">
+        <div class="card-content">
+          <h3>${p.nombre}</h3>
+          <p>Precio: ${p.precio}</p>
+          <a class="btn-wsp" href="${p.whatsapp}" target="_blank">
+            Comprar por WhatsApp
+          </a>
+        </div>
+      `;
+      catalogo.appendChild(card);
+    });
+  })
+  .catch(err => console.error("Error cargando data.json:", err));
+</script>
 
 </body>
 </html>
