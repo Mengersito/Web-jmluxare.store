@@ -1,252 +1,126 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JMLuxare Store | Perfumes Originales</title>
+  <meta charset="UTF-8">
+  <title>JMLuxare Store | Perfumes Originales</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+    }
 
-body {
-    background: #0f0f0f;
-    color: #fff;
-}
+    header {
+      padding: 30px;
+      text-align: center;
+      background: #000;
+      border-bottom: 1px solid #222;
+    }
 
-/* HEADER */
-header {
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #0f0f0f;
-    border-bottom: 1px solid #222;
-}
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+    }
 
-header h1 {
-    color: #d4af37;
-    font-size: 24px;
-}
+    header p {
+      color: #ccc;
+      margin-top: 10px;
+    }
 
-header a {
-    color: #fff;
-    text-decoration: none;
-    border: 1px solid #d4af37;
-    padding: 8px 16px;
-    border-radius: 6px;
-    transition: 0.3s;
-}
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      padding: 40px;
+    }
 
-header a:hover {
-    background: #d4af37;
-    color: #000;
-}
+    .card {
+      background: #161616;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,.5);
+      transition: transform .3s;
+    }
 
-/* HERO */
-.hero {
-    height: 80vh;
-    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)),
-    url('https://images.unsplash.com/photo-1585386959984-a41552231693') center/cover;
-    display: flex;
-    align-items: center;
-    padding: 40px;
-}
+    .card:hover {
+      transform: translateY(-5px);
+    }
 
-.hero-content {
-    max-width: 520px;
-}
+    .card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
 
-.hero h2 {
-    font-size: 42px;
-    margin-bottom: 15px;
-}
+    .card-content {
+      padding: 18px;
+      text-align: center;
+    }
 
-.hero p {
-    color: #ccc;
-    margin-bottom: 20px;
-    font-size: 17px;
-}
+    .card-content h3 {
+      margin: 0 0 15px;
+      font-weight: 500;
+    }
 
-.hero button {
-    padding: 12px 26px;
-    border: none;
-    background: #d4af37;
-    color: #000;
-    font-size: 16px;
-    border-radius: 6px;
-    cursor: pointer;
-}
+    .btn-wsp {
+      display: inline-block;
+      padding: 10px 18px;
+      background: #25d366;
+      color: #000;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-/* SECCIONES */
-.section {
-    padding: 60px 40px;
-}
-
-.section h3 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 28px;
-}
-
-/* CATALOGO */
-.catalogo {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-}
-
-.card {
-    background: #161616;
-    border-radius: 14px;
-    padding: 15px;
-    text-align: center;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-}
-
-.card img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.card h4 {
-    margin-bottom: 5px;
-}
-
-.card span {
-    color: #aaa;
-    font-size: 14px;
-}
-
-.card button {
-    margin-top: 10px;
-    padding: 10px;
-    width: 100%;
-    border: none;
-    border-radius: 6px;
-    background: #d4af37;
-    color: #000;
-    cursor: pointer;
-}
-
-/* BENEFICIOS */
-.beneficios {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    text-align: center;
-}
-
-.beneficio {
-    background: #161616;
-    padding: 25px;
-    border-radius: 14px;
-    font-size: 16px;
-}
-
-/* FOOTER */
-footer {
-    background: #0b0b0b;
-    padding: 25px;
-    text-align: center;
-    color: #777;
-}
-
-/* WHATSAPP */
-.whatsapp {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25d366;
-    color: #fff;
-    padding: 15px 16px;
-    border-radius: 50%;
-    font-size: 22px;
-    text-decoration: none;
-}
-</style>
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+      font-size: 14px;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-    <h1>JMLuxare Store</h1>
-    <a href="https://wa.me/573001234567" target="_blank">WhatsApp</a>
+  <h1>JMLUXARE STORE</h1>
+  <p>Perfumes 100% originales • Envíos a todo el país</p>
 </header>
 
-<section class="hero">
-    <div class="hero-content">
-        <h2>Perfumes 100% Originales</h2>
-        <p>Productos auténticos • Envíos a todo el país • Atención directa por WhatsApp</p>
-        <button onclick="whatsappGeneral()">Comprar por WhatsApp</button>
+<section class="catalogo">
+
+  <!-- PERFUME 1 -->
+  <div class="card">
+    <img src="images/khamrah.jpg" alt="Khamrah Lattafa">
+    <div class="card-content">
+      <h3>Khamrah – Lattafa</h3>
+      <a class="btn-wsp" href="https://wa.me/57TU_NUMERO?text=Hola%20quiero%20el%20perfume%20Khamrah" target="_blank">
+        Comprar por WhatsApp
+      </a>
     </div>
-</section>
+  </div>
 
-<section class="section">
-    <h3>Catálogo</h3>
-
-    <div class="catalogo">
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f">
-            <h4>Dior Sauvage</h4>
-            <span>100ml</span>
-            <button onclick="comprar('Dior Sauvage 100ml')">Pedir por WhatsApp</button>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1610461888750-10bfc601b874">
-            <h4>Versace Eros</h4>
-            <span>100ml</span>
-            <button onclick="comprar('Versace Eros 100ml')">Pedir por WhatsApp</button>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519">
-            <h4>Invictus</h4>
-            <span>100ml</span>
-            <button onclick="comprar('Invictus 100ml')">Pedir por WhatsApp</button>
-        </div>
+  <!-- PERFUME 2 -->
+  <div class="card">
+    <img src="images/khamrah-qahwa.jpg" alt="Khamrah Qahwa">
+    <div class="card-content">
+      <h3>Khamrah Qahwa</h3>
+      <a class="btn-wsp" href="https://wa.me/573503341287?text=Hola%20quiero%20el%20perfume%20Khamrah%20Qahwa" target="_blank">
+        Comprar por WhatsApp
+      </a>
     </div>
-</section>
+  </div>
 
-<section class="section">
-    <h3>¿Por qué comprar en JMLuxare?</h3>
-    <div class="beneficios">
-        <div class="beneficio">✅ Perfumes 100% Originales</div>
-        <div class="beneficio">🚚 Envíos a todo el país</div>
-        <div class="beneficio">💬 Atención directa por WhatsApp</div>
-        <div class="beneficio">⭐ Marca premium y confiable</div>
-    </div>
 </section>
 
 <footer>
-    © 2026 JMLuxare Store · Perfumes Originales · Envíos Nacionales
+  © 2026 JMLuxare Store
 </footer>
-
-<a class="whatsapp" href="https://wa.me/573001234567" target="_blank">📲</a>
-
-<script>
-const numero = "573001234567";
-
-function comprar(producto) {
-    const mensaje = `Hola, quiero el perfume ${producto}. ¿Está disponible?`;
-    window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`, "_blank");
-}
-
-function whatsappGeneral() {
-    const mensaje = "Hola, quiero información sobre los perfumes de JMLuxare Store";
-    window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`, "_blank");
-}
-</script>
 
 </body>
 </html>
